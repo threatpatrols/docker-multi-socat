@@ -11,6 +11,7 @@ RUN \
     apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y socat procps && \
+    apt-get install -y iputils-ping inetutils-traceroute && \
     apt-get clean && \
     apt-get autoremove -y
 
