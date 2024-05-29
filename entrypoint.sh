@@ -2,14 +2,14 @@
 
 set -e
 
-# Create the socat pipes defined by env vars that start with 'SOCAT'
+# Create the socat pipes defined by env vars that start with 'MULTI_SOCAT'
 while IFS= read -r socat_args || [[ -n $socat_args ]]; do
   if [ -n "${socat_args}" ]; then
     socat_cmd="socat ${socat_args}"
     echo " >> ${socat_cmd}"
     $(${socat_cmd}) &
   fi
-done < <(printf '%s' "$(env | grep ^SOCAT | cut -d'=' -f2-)")
+done < <(printf '%s' "$(env | grep ^MULTI_SOCAT | cut -d'=' -f2-)")
 
 
 sleep 15
