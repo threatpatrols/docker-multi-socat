@@ -9,7 +9,7 @@ while IFS= read -r socat_args || [[ -n $socat_args ]]; do
     echo " >> ${socat_cmd}"
     $(${socat_cmd}) &
   fi
-done < <(printf '%s' "$(env | grep ^MULTI_SOCAT | cut -d'=' -f2-)")
+done < <(printf '%s' "$(env | sort | grep ^MULTI_SOCAT | cut -d'=' -f2-)")
 
 
 sleep 15
